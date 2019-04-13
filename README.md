@@ -17,6 +17,12 @@ print_fibo(n)
 
 #t3chfest2018
 
+#Celulares
+string = '999999999 989898980 799999 99999999999 787890980'
+list(filter(lambda x: len(x) == 9 and x[0] in ('9', '7'), string.split()))
+
+
+
 # fibonacci al cubo
 
 codingBat
