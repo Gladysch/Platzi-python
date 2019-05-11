@@ -29,3 +29,46 @@ codingBat
 
 stackoverflow => Paginas 
 
+clase 5
+--=======================================
+-- trialapp.urls
+from django.conf.urls import url
+from apps.trialapp.views import root, hello, hello_name, hello_age
+
+urlpatterns = [
+    url(r'^$', root),
+    url(r'^hello/$', hello),
+    url(r'^hello/([a-z]{3,8})/$', hello_name),
+    url(r'^hello/[a-z]{3,8}/([0-9]|[1-9]{1}[0-9]{1})/$', hello_age),
+]
+--=======================================
+-- trialapp.views
+from django.http import HttpResponse
+
+
+def root(request):
+    # assert False  # Sirve para romper el flujo
+    return HttpResponse('Area 51 Training Center, desde Trial')
+
+
+def hello(request):
+    return HttpResponse('Hola estamos en Trial!')
+
+
+def hello_name(request, name):
+    message = '''
+        Hola {}, estas en TrialApp
+    '''.format(name)
+    return HttpResponse(message)
+
+
+def hello_age(request, age):
+    message = '''
+        Hola, tu edad es {}. <br\>
+    '''.format(age)
+    if int(age) > 17:
+        message += 'Eres mayor de edad'
+    else:
+        message += 'Eres menor de edad'
+    return HttpResponse(message)
+
