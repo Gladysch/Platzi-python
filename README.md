@@ -72,3 +72,5 @@ def hello_age(request, age):
         message += 'Eres menor de edad'
     return HttpResponse(message)
 
+-- TAREA
+CREATE PARA COMPANY
